@@ -190,8 +190,8 @@ body {
 .section-footer {
   background-color: var(--grey-footer);
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
 }
 /* .section-footer a, */
 .section-footer h4 {
