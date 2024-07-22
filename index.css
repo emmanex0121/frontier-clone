@@ -78,7 +78,7 @@ body {
 
 .nav-general {
   /* margin-top: 3rem; */
-  /* display: block; */
+  display: none;
 
   font-size: 0.85rem;
   font-weight: 600;
