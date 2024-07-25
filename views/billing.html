@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontier | Update Billing</title>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/css/billing.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+  </head>
+  <body>
+    <header class="section-header">
+      <div class="nav-container">
+        <nav class="navbar">
+          <div class="nav-top-mobile">
+            <div class="menu-icon-container">
+              <span class="material-symbols-outlined menu-icon"> menu </span>
+            </div>
+            <div class="menu-logo-white">
+              <img
+                src="/images/frontier-logo-white.png"
+                width="70"
+                height="70"
+                alt="" />
+            </div>
+          </div>
+          <div class="nav-general">
+            <!-- <img src="images/frontier_header.png" width="70" height="70"  alt=""> -->
+            <div class="nav-items">
+              <a class="nav-item">Residential</a>
+              <a class="nav-item">Small Business</a>
+              <a class="nav-item">Enterprise</a>
+              <a class="nav-item">Wholesale</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- <div class="header-logo-section">
+        <div class="logo-img">
+          <img
+            src="/images/frontier_header.png"
+            alt=""
+            class="frontier-logo-img"
+            width="70"
+            height="70" />
+        </div>
+        <div class="header-drop-down">
+          <select class="dropdown" name="Go to..." id="cars">
+            <option value="goto...">Go to...</option>
+            <option value="account">My Account</option>
+            <option value="bill">Pay Your Bill</option>
+            <option value="mail">Check Your Mail</option>
+          </select>
+        </div>
+      </div> -->
+    </header>
+
+    <main>
+      <section class="section-billing">
+        <h1 class="update-billing-text">Update Your Billing Information</h1>
+        <div class="credit-radio">
+          <input type="radio" name="radio" checked />
+          <label for="radio">Credit Card</label>
+        </div>
+        <div class="cc-images">
+          <div class="cc-image">
+            <img
+              src="/images/mastercard.png"
+              alt=""
+              class="mastercard"
+              width="50"
+              height="35" />
+          </div>
+          <div class="cc-image">
+            <img
+              src="/images/amex.png"
+              alt=""
+              class="amex"
+              width="50"
+              height="35" />
+          </div>
+          <div class="cc-image">
+            <img
+              src="/images/visa2.png"
+              alt=""
+              class="visa"
+              width="50"
+              height="35" />
+          </div>
+          <div class="cc-image">
+            <img
+              src="/images/discover.png"
+              alt=""
+              class="discover"
+              width="50"
+              height="35" />
+          </div>
+        </div>
+        <form action="" class="billing-form">
+          <p class="required">* Required fields</p>
+          <div class="info-container">
+            <label for="card-type">Credit Card Type *</label>
+            <select class="dropdown-billing" name="card-type" id="card-type">
+              <option value="select">Select</option>
+              <option value="account">Mastercard</option>
+              <option value="amex">AMEX</option>
+              <option value="discover">Discover</option>
+              <option value="visa">Visa</option>
+            </select>
+          </div>
+          <div class="info-container">
+            <label for="">Card Holder Name *</label>
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div class="info-container">
+            <label for="">Credit Card Number *</label>
+            <input type="text" placeholder="CC Number" />
+          </div>
+          <span class="checkbox-container"
+            ><input type="checkbox" class="checkbox" /> Is this a prepaid card
+          </span>
+          <div class="info-container">
+            <label for="expiration">Expiration *</label>
+            <select class="dropdown-billing" name="expiration" id="expiration">
+              <option value="month">Month</option>
+            </select>
+            <select class="dropdown-billing" name="year" id="year">
+              <option value="year">Year</option>
+            </select>
+          </div>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <p class="info-match"></p>
+            This must match the information on file with your credit card
+            provider
+          </p>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div class="info-container">
+            <label for="card-type">Credit Card Type *</label>
+            <select class="dropdown-billing" name="card-type" id="card-type">
+              <option value="select">Select</option>
+              <option value="account">Mastercard</option>
+              <option value="amex">AMEX</option>
+              <option value="discover">Discover</option>
+              <option value="visa">Visa</option>
+            </select>
+          </div>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div class="info-container">
+            <label for="cvv">CVV Number *</label>
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div class="info-container">
+            <label for="expiration">Expiration *</label>
+            <select class="dropdown-billing" name="expiration" id="expiration">
+              <option value="month">Month</option>
+            </select>
+            <select class="dropdown-billing" name="year" id="year">
+              <option value="year">Year</option>
+            </select>
+            <select class="dropdown-billing" name="year" id="year">
+                <option value="year">Year</option>
+              </select>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="section-footer">
+      <div class="footer-container">
+        <div class="footer-container-top">
+          <div class="footer-top-texts" onclick="showFooter(event, this)">
+            <h4>
+              SHOP <span><i class="ri-arrow-right-s-fill"></i></span>
+            </h4>
+            <div class="footer-top-links">
+              <a href="" class="footer-top-link">Plans</a
+              ><a href="" class="footer-top-link">Internet</a
+              ><a href="" class="footer-top-link">Fiber Internet</a
+              ><a href="" class="footer-top-link">Video/TV</a
+              ><a href="" class="footer-top-link">Phone</a
+              ><a href="" class="footer-top-link">Frontier Secure</a
+              ><a href="" class="footer-top-link">Moving</a
+              ><a href="" class="footer-top-link">Availability</a
+              ><a href="" class="footer-top-link">Multifamily</a>
+            </div>
+          </div>
+          <div class="footer-top-texts" onclick="showFooter(event, this)">
+            <h4>
+              MY ACCOUNT <span><i class="ri-arrow-right-s-fill"></i></span>
+            </h4>
+            <div class="footer-top-links">
+              <a href="" class="footer-top-link">Register</a
+              ><a href="" class="footer-top-link">Pay Bill</a
+              ><a href="" class="footer-top-link">Check Email</a
+              ><a href="" class="footer-top-link">Manage Account</a
+              ><a href="" class="footer-top-link">MyFrontier App</a
+              ><a href="" class="footer-top-link">Watch TV</a>
+            </div>
+          </div>
+          <div class="footer-top-texts" onclick="showFooter(event, this)">
+            <h4>
+              SUPPORT <span><i class="ri-arrow-right-s-fill"></i></span>
+            </h4>
+            <div class="footer-top-links">
+              <a href="" class="footer-top-link">Help Center</a
+              ><a href="" class="footer-top-link">Video Gallery</a
+              ><a href="" class="footer-top-link">Support Wizard</a
+              ><a href="" class="footer-top-link">Trouble Ticket Status</a
+              ><a href="" class="footer-top-link">Order Status</a
+              ><a href="" class="footer-top-link">Contact Us</a>
+            </div>
+          </div>
+          <div class="footer-top-texts" onclick="showFooter(event, this)">
+            <h4>
+              CORPORATE
+              <span
+                ><i class="ri-arrow-right-s-fill arrow-down" id="arrow-down"></i
+              ></span>
+            </h4>
+            <div class="footer-top-links">
+              <a href="" class="footer-top-link">Company</a
+              ><a href="" class="footer-top-link">Investors</a
+              ><a href="" class="footer-top-link">News</a
+              ><a href="" class="footer-top-link">Blog</a
+              ><a href="" class="footer-top-link">Responsibility</a
+              ><a href="" class="footer-top-link">Suppliers</a
+              ><a href="" class="footer-top-link">Public Inspection Files</a
+              ><a href="" class="footer-top-link">Discount Programs</a
+              ><a href="" class="footer-top-link">Careers</a>
+            </div>
+          </div>
+          <div class="footer-top-texts" onclick="showFooter(event, this)">
+            <h4>
+              FRONTIER SITES <span><i class="ri-arrow-right-s-fill"></i></span>
+            </h4>
+            <div class="footer-top-links">
+              <a href="" class="footer-top-link">Small Business</a
+              ><a href="" class="footer-top-link">Enterprise</a
+              ><a href="" class="footer-top-link">Wholesale</a
+              ><a href="" class="footer-top-link">Frontier Yahoo Portal</a
+              ><a href="" class="footer-top-link"
+                >Frontier Business Partner Program</a
+              ><a href="" class="footer-top-link">Phone Directories</a>
+            </div>
+          </div>
+          <div class="footer-top-texts" onclick="showFooter(event, this)">
+            <h4>
+              SALES PARTNERS <span><i class="ri-arrow-right-s-fill"></i></span>
+            </h4>
+            <div class="footer-top-links">
+              <a href="" class="footer-top-link">Frontier Internet</a
+              ><a href="" class="footer-top-link">Frontier Fiber</a
+              ><a href="" class="footer-top-link">Frontier Fiber Internet</a
+              ><a href="" class="footer-top-link">Local Internet</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-container-bottom">
+          <div class="footer-bottom-links">
+            <span class="span-bottom-links">
+              <a href="">Home</a> | <a href="">Site Map</a> |
+              <a href="">Store Locator</a> |
+              <a href="">Policies & Notifications</a> |
+              <a href="">Terms & Conditions</a> |
+              <a href="">Privacy Policy</a> |
+              <a href="">California Privacy Policy</a>
+            </span>
+            <p>
+              &copy;2024 Frontier Communications Parent, Inc. All rights
+              reserved.
+            </p>
+          </div>
+          <div class="footer-socials">
+            <div class="social-circle twitter">
+              <i class="ri-twitter-fill"></i>
+            </div>
+            <div class="social-circle facebook">
+              <i class="ri-facebook-fill"></i>
+            </div>
+            <div class="social-circle linkedin">
+              <i class="ri-linkedin-fill"></i>
+            </div>
+            <div class="social-circle youtube">
+              <i class="ri-youtube-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/index.js" type="text/javascript"></script>
+  </body>
+</html>
