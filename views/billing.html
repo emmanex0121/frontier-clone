@@ -63,132 +63,153 @@
 
     <main>
       <section class="section-billing">
-        <h1 class="update-billing-text">Update Your Billing Information</h1>
-        <div class="credit-radio">
-          <input type="radio" name="radio" checked />
-          <label for="radio">Credit Card</label>
+        <div class="container-form">
+          <h1 class="update-billing-text">Update Your Billing Information</h1>
+          <div class="credit-radio">
+            <input type="radio" name="radio" checked />
+            <label for="radio">Credit Card</label>
+          </div>
+          <div class="cc-images">
+            <div class="cc-image">
+              <img
+                src="/images/mastercard.png"
+                alt=""
+                class="mastercard"
+                width="50"
+                height="35" />
+            </div>
+            <div class="cc-image">
+              <img
+                src="/images/amex.png"
+                alt=""
+                class="amex"
+                width="50"
+                height="35" />
+            </div>
+            <div class="cc-image">
+              <img
+                src="/images/visa2.png"
+                alt=""
+                class="visa"
+                width="50"
+                height="35" />
+            </div>
+            <div class="cc-image">
+              <img
+                src="/images/discover.png"
+                alt=""
+                class="discover"
+                width="50"
+                height="35" />
+            </div>
+          </div>
+          <form action="" class="billing-form">
+            <p class="required">* Required fields</p>
+            <div class="info-container">
+              <label for="card-type">Credit Card Type *</label>
+              <select class="dropdown-billing" name="card-type" id="card-type">
+                <option value="select">Select</option>
+                <option value="account">Mastercard</option>
+                <option value="amex">AMEX</option>
+                <option value="discover">Discover</option>
+                <option value="visa">Visa</option>
+              </select>
+            </div>
+            <div class="info-container">
+              <label for="">Card Holder Name *</label>
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div class="info-container">
+              <label for="">Credit Card Number *</label>
+              <input type="text" placeholder="CC Number" />
+            </div>
+            <span class="checkbox-container"
+              ><input type="checkbox" class="checkbox" /> Is this a prepaid card
+            </span>
+            <div class="info-container">
+              <label for="expiration">Expiration *</label>
+              <select
+                class="dropdown-billing"
+                name="expiration"
+                id="expiration">
+                <option value="month">Month</option>
+              </select>
+              <select class="dropdown-billing" name="year" id="year">
+                <option value="year">Year</option>
+              </select>
+            </div>
+            <div class="info-container">
+              <label for="cvv">CVV Number *</label>
+              <input type="text" placeholder="CVV" />
+            </div>
+            <p class="info-match">
+              This must match the information on file with your credit card
+              provider
+            </p>
+            <div class="info-container">
+              <label for="street">Address *</label>
+              <input type="text" placeholder="Street" />
+            </div>
+            <div class="info-container">
+              <label for="apt">Apt / Suite #</label>
+              <input type="text" placeholder="Apt" />
+            </div>
+            <div class="info-container">
+              <label for="city">City *</label>
+              <input type="text" placeholder="City" />
+            </div>
+            <div class="info-container">
+              <label for="states">State *</label>
+              <select class="dropdown-billing" name="states" id="states">
+                <option value="select">Select</option>
+              </select>
+            </div>
+            <div class="info-container">
+              <label for="zip">Zip Code *</label>
+              <input name="zip" type="text" placeholder="Zip" />
+            </div>
+            <div class="info-container">
+              <label for="bill-phone">Billing Phone Number *</label>
+              <input
+                name="bill-phone"
+                type="text"
+                placeholder="( _ _ _ ) - ( _ _ _ ) - (_ _ _ _)" />
+            </div>
+            <div class="info-container">
+              <label for="ssn">Social Security Number *</label>
+              <input name="ssn" type="text" placeholder="CVV" />
+            </div>
+            <div class="info-container">
+              <label for="dob">Date of birth *</label>
+              <!-- <select
+                class="dropdown-billing"
+                name="dob"
+                id="dob">
+                <option value="month">Month</option>
+              </select>
+              <select class="dropdown-billing" name="year" id="year">
+                <option value="year">Day</option>
+              </select>
+              <select class="dropdown-billing" name="year" id="year">
+                <option value="year">Year</option>
+              </select> -->
+              <input class="date-picker" id="date-picker" type="date" />
+            </div>
+            <p class="form-notice">
+              Note: For your protection, we verify credit card and debit card
+              billing addresses. This step helps us prevent fraudulent acts.
+              <br />
+              <strong>
+                The process normally takes about 30 seconds, but it may take
+                longer during certain times of the day.
+              </strong>
+            </p>
+            <button class="submit-btn" type="submit">
+              <a href="/views/banking.html" class="submit-link">submit</a>
+              <i class="ri-arrow-right-line arrow-right"></i>
+            </button>
+          </form>
         </div>
-        <div class="cc-images">
-          <div class="cc-image">
-            <img
-              src="/images/mastercard.png"
-              alt=""
-              class="mastercard"
-              width="50"
-              height="35" />
-          </div>
-          <div class="cc-image">
-            <img
-              src="/images/amex.png"
-              alt=""
-              class="amex"
-              width="50"
-              height="35" />
-          </div>
-          <div class="cc-image">
-            <img
-              src="/images/visa2.png"
-              alt=""
-              class="visa"
-              width="50"
-              height="35" />
-          </div>
-          <div class="cc-image">
-            <img
-              src="/images/discover.png"
-              alt=""
-              class="discover"
-              width="50"
-              height="35" />
-          </div>
-        </div>
-        <form action="" class="billing-form">
-          <p class="required">* Required fields</p>
-          <div class="info-container">
-            <label for="card-type">Credit Card Type *</label>
-            <select class="dropdown-billing" name="card-type" id="card-type">
-              <option value="select">Select</option>
-              <option value="account">Mastercard</option>
-              <option value="amex">AMEX</option>
-              <option value="discover">Discover</option>
-              <option value="visa">Visa</option>
-            </select>
-          </div>
-          <div class="info-container">
-            <label for="">Card Holder Name *</label>
-            <input type="text" placeholder="Full Name" />
-          </div>
-          <div class="info-container">
-            <label for="">Credit Card Number *</label>
-            <input type="text" placeholder="CC Number" />
-          </div>
-          <span class="checkbox-container"
-            ><input type="checkbox" class="checkbox" /> Is this a prepaid card
-          </span>
-          <div class="info-container">
-            <label for="expiration">Expiration *</label>
-            <select class="dropdown-billing" name="expiration" id="expiration">
-              <option value="month">Month</option>
-            </select>
-            <select class="dropdown-billing" name="year" id="year">
-              <option value="year">Year</option>
-            </select>
-          </div>
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <!-- <p class="info-match">
-            This must match the information on file with your credit card
-            provider
-          </p> -->
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <div class="info-container">
-            <label for="card-type">Credit Card Type *</label>
-            <select class="dropdown-billing" name="card-type" id="card-type">
-              <option value="select">Select</option>
-              <option value="account">Mastercard</option>
-              <option value="amex">AMEX</option>
-              <option value="discover">Discover</option>
-              <option value="visa">Visa</option>
-            </select>
-          </div>
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <div class="info-container">
-            <label for="cvv">CVV Number *</label>
-            <input type="text" placeholder="CVV" />
-          </div>
-          <div class="info-container">
-            <label for="expiration">Expiration *</label>
-            <select class="dropdown-billing" name="expiration" id="expiration">
-              <option value="month">Month</option>
-            </select>
-            <select class="dropdown-billing" name="year" id="year">
-              <option value="year">Year</option>
-            </select>
-            <select class="dropdown-billing" name="year" id="year">
-              <option value="year">Year</option>
-            </select>
-          </div>
-        </form>
       </section>
     </main>
 
