@@ -130,7 +130,8 @@ body {
   font-weight: 600;
 }
 .email-section input,
-.pass-section input {
+.pass-section input,
+.dropdown-banking {
   font-size: 1rem;
   border: 1px solid var(--grey-border);
   border-radius: 4px;
@@ -346,7 +347,8 @@ body {
 @media screen and (min-width: 1000px) {
   .login-btn,
   .pass-section input,
-  .email-section input {
+  .email-section input,
+  .dropdown-banking {
     max-width: 20rem;
   }
 

