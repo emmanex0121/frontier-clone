@@ -1,0 +1,37 @@
+.section-main {
+  margin-block: auto;
+  height: 50vh;
+  place-content: center;
+}
+
+.body-text {
+  text-align: center;
+  margin-block: auto;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 760px) {
+  .thank-you-image {
+    width: 300px;
+  }
+  .text {
+    padding-inline: 2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .thank-you-image {
+    width: 200px;
+  }
+  .text {
+    padding-inline: 1rem;
+    font-size: 0.6rem;
+  }
+}

