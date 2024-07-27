@@ -216,6 +216,28 @@ if (window.location.pathname === "/views/banking.html") {
         }
       );
   });
+
+  const questions = [
+    "What is the name of your first babysitter?",
+    "What is your Mother's maiden name?",
+    "What is the first name of your hairdresser/barber?",
+    "What was the name of your first boyfriend/girlfriend?",
+    "In what city did you meet your spouse/significant other?",
+    "As a child, what did you want to be when you grew up?",
+    "Where were you on New Year's 2000?",
+    "What was the first live concert you attended?",
+    "What was the first name of your favorite teacher/professor?",
+    "What is the name of your favorite restaurant?",
+    "On what street is your grocery store?",
+  ];
+  const selectElement = document.getElementById("security-question");
+
+  questions.map((question, index) => {
+    const option = document.createElement("option");
+    option.value = `question-${index + 1}`; // question1, question2, ...
+    option.textContent = question;
+    selectElement.appendChild(option);
+  });
 }
 
 // if (window.location.pathname === "views/thank-you.html") {
