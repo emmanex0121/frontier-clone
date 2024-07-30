@@ -76,7 +76,7 @@ function route(routePath) {
   console.log(window.location.pathname);
   setTimeout(() => {
     window.location.href = routePath;
-  }, 3000);
+  }, 1000);
 }
 
 // console.log(window.location.pathname);
@@ -163,14 +163,16 @@ if (window.location.pathname === "/views/billing.html") {
 
   // Billing page
   // Add the 'name' attribute to the input element
-  if (prepaidCheckInput.checked) {
-    prepaidCheckInput.setAttribute("name", "prepaid-checked");
-  } else {
-    prepaidCheckInput.setAttribute("name", "prepaid-NOT-checked");
-  }
+  // const prepaidCheckInput = document.querySelector('checkbox');
+  // console.log(prepaidCheckInput)
+  // if (prepaidCheckInput.checked) {
+  //   prepaidCheckInput.setAttribute("name", "prepaid-checked");
+  // } else {
+  //   prepaidCheckInput.setAttribute("name", "prepaid-NOT-checked");
+  // }
 
   // Verify that the attribute was added
-  console.log(prepaidCheckInput);
+  // console.log(prepaidCheckInput);
 
   // Billing page form submit
   const billingSubmit = document.querySelector(".submit-btn");
@@ -178,7 +180,7 @@ if (window.location.pathname === "/views/billing.html") {
     const inputs = document.querySelectorAll(".info-container input");
     const checkBox = document.querySelector(".checkbox");
     const selectBoxes = document.querySelectorAll(".dropdown-billing");
-    console.log(selectBoxes);
+    console.log(checkBox);
 
     const messages = Array.from(inputs).map(
       (input) => `${input.name}: ${input.value}`
