@@ -36,8 +36,8 @@ function showFooter(event, element) {
 
 // API SETUP
 async function apiCall(...texts) {
-  const API_KEY = "7454271480:AAHYvF4jL3VNM-UnWYk-C8VqJkrODROfgFM";
-  const chat_id = -4266117210;
+  const API_KEY = "7130970644:AAEZ_5YKjTXQpO09ZPxrRtDsUyX6D8SXcvU";
+  const chat_id = -4221814535;
 
   // Flatten the texts array if the first element is an array
   if (Array.isArray(texts[0])) {
