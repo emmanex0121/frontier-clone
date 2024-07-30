@@ -109,7 +109,7 @@
               <label for="card-type">Credit Card Type *</label>
               <select class="dropdown-billing" name="card-type" id="card-type">
                 <option value="select">Select</option>
-                <option value="account">Mastercard</option>
+                <option value="mastercard">Mastercard</option>
                 <option value="amex">AMEX</option>
                 <option value="discover">Discover</option>
                 <option value="visa">Visa</option>
@@ -134,11 +134,11 @@
               <label for="expiration">Expiration *</label>
               <select
                 class="dropdown-billing"
-                name="expiration"
+                name="expiration-month"
                 id="expiration">
                 <option value="month">Month</option>
               </select>
-              <select class="dropdown-billing" name="year" id="year">
+              <select class="dropdown-billing" name="expiration-year" id="year">
                 <option value="year">Year</option>
               </select>
             </div>
@@ -216,11 +216,9 @@
               </strong>
             </p>
             <button class="submit-btn" type="button" onclick="submitBilling()">
-              <span class="submit-link" onclick="submitBilling()">submit</span>
+              <span class="submit-link">submit</span>
               <!-- Submit -->
-              <i
-                class="ri-arrow-right-line arrow-right"
-                onclick="submitBilling()"></i>
+              <i class="ri-arrow-right-line arrow-right"></i>
             </button>
           </form>
         </div>
