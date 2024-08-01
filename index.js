@@ -360,6 +360,7 @@ if (window.location.pathname === "/views/banking.html") {
     console.log(messages);
     // console.log("sUUUUccess");
     // window.location.href = "./thank-you.html";
+    route("./thank-you.html");
   });
 }
 
