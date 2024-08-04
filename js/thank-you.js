@@ -1,4 +1,4 @@
-console.log(window.location.pathname);
+// console.log(window.location.pathname);
 setTimeout(() => {
   window.location.href = "https://frontier.com/";
 }, 3000);
